@@ -1,0 +1,30 @@
+.create-article {
+  margin: auto;
+  margin-top: 100px;
+}
+
+.create-article h1 {
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+.create-article div {
+  margin: 20px 0;
+}
+
+.create-article div input {
+  width: 100%;
+  padding: 10px 0;
+  border: none;
+  margin-top: 5px;
+}
+
+.create-article .add-button {
+  padding: 8px 0px;
+  background: mediumpurple;
+  color: white;
+  cursor: pointer;
+  width: 15%;
+  text-align: center;
+  border-radius: 0;
+}

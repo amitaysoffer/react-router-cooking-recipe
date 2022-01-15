@@ -1,0 +1,27 @@
+.header {
+  background-color: cornflowerblue;
+  padding: 20px 60px;
+}
+
+.container {
+  max-width: 960px;
+  margin: auto;
+  display: flex;
+  justify-content: space-between;
+}
+
+button {
+  padding: 10px 20px;
+  border-radius: 20px;
+  background: aliceblue;
+  color: blue;
+  cursor: pointer;
+}
+
+.button {
+  padding: 10px 20px;
+  border-radius: 20px;
+  background: aliceblue;
+  color: blue;
+  cursor: pointer;
+}
