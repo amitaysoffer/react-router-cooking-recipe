@@ -1,7 +1,8 @@
-import React, { useState } from "react";
-import { useHistory } from "react-router-dom";
-import axios from "axios";
-import "./AddArticle.css";
+import React, { useState } from "react"
+import { useHistory } from "react-router-dom"
+import axios from "axios"
+import "./AddArticle.css"
+import { useLocation } from "react-router-dom"
 
 const AddArticle = () => {
   //   const [recipe, setRecipe] = useState({
@@ -10,16 +11,21 @@ const AddArticle = () => {
   //     method: "",
   //     cookingTime: "",
   //   });
-  const [title, setTitle] = useState("");
-  const [method, setMethod] = useState("");
-  const [cookingTime, setCookingTime] = useState("");
-  const [ingredients, setIngredients] = useState([]);
-  const [tempIngredient, setTempIngredient] = useState("");
+  const [title, setTitle] = useState("")
+  const [method, setMethod] = useState("")
+  const [cookingTime, setCookingTime] = useState("")
+  const [ingredients, setIngredients] = useState([])
+  const [tempIngredient, setTempIngredient] = useState("")
 
-  const history = useHistory();
+  const history = useHistory()
+  const queryString = useLocation().search
+  const queryParams = new URLSearchParams(queryString)
 
   const handleSubmit = (e) => {
-    e.preventDefault();
+    e.preventDefault()
+
+    console.log(queryString)
+    console.log(queryParams.get("name"))
 
     axios
       .post("http://localhost:3000/recipes", {
@@ -29,36 +35,35 @@ const AddArticle = () => {
         cookingTime,
       })
       .then(function (res) {
-        console.log(res.data);
+        // console.log(res.data);
       })
       .catch(function (error) {
-        console.log(error);
-      });
+        console.log(error)
+      })
 
-    history.push("/");
-    resetFields();
-  };
+    // history.push("/");
+    resetFields()
+  }
 
   const addIngredients = (e) => {
-    e.preventDefault();
+    e.preventDefault()
 
-    setIngredients((prevState) => [...prevState, tempIngredient]);
+    setIngredients((prevState) => [...prevState, tempIngredient])
 
-    setTempIngredient("");
-  };
+    setTempIngredient("")
+  }
 
   const resetFields = () => {
-    setTitle("");
-    setIngredients([]);
-    setMethod("");
-    setCookingTime("");
-  };
+    setTitle("")
+    setIngredients([])
+    setMethod("")
+    setCookingTime("")
+  }
 
   //   const handleChange = (e) => {
   //     setRecipe({ [e.target.name]: e.target.value });
   //   };
 
-  console.log(ingredients);
   return (
     <section className="create-article">
       <h1>Add a New Recipe</h1>
@@ -123,7 +128,7 @@ const AddArticle = () => {
         </button>
       </form>
     </section>
-  );
-};
+  )
+}
 
-export default AddArticle;
+export default AddArticle

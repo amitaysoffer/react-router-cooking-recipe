@@ -1,9 +1,16 @@
-import { NavLink, Link } from "react-router-dom";
-import "./Header.css";
+import { NavLink, Link } from "react-router-dom"
+import "./Header.css"
+import { useTheme } from "../useTheme"
 
 const Header = ({ searchCard }) => {
+  const { color, changeColor } = useTheme()
+
   return (
-    <header className="header">
+    <header
+      className="header"
+      style={{ background: color }}
+      onClick={() => changeColor("green")}
+    >
       <div className="container">
         <div className="logo">
           <NavLink to="/">
@@ -26,7 +33,7 @@ const Header = ({ searchCard }) => {
         </nav>
       </div>
     </header>
-  );
-};
+  )
+}
 
-export default Header;
+export default Header

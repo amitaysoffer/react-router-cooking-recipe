@@ -1,18 +1,18 @@
-import { useEffect, useState } from "react";
-import index from "./index.css";
-import Card from "./components/Card";
-import Article from "./components/Article";
-import Header from "./components/Header";
-import { BrowserRouter, Switch, Route } from "react-router-dom";
-import useFetch from "./useFetch";
-import { computeHeadingLevel } from "@testing-library/react";
-import Home from "./components/Home";
-import AddArticle from "./components/AddArticle";
+import { useEffect, useState } from "react"
+import index from "./index.css"
+import Card from "./components/Card"
+import Article from "./components/Article"
+import Header from "./components/Header"
+import { BrowserRouter, Switch, Route } from "react-router-dom"
+import useFetch from "./useFetch"
+import { computeHeadingLevel } from "@testing-library/react"
+import Home from "./components/Home"
+import AddArticle from "./components/AddArticle"
 
 function App() {
-  const [url, setUrl] = useState("http://localhost:3000/recipes");
-  const { data: cards, isPending, error } = useFetch(url);
-  const [cardSearched, setCardSearched] = useState("");
+  const [url, setUrl] = useState("http://localhost:3000/recipes")
+  const { data: cards, isPending, error } = useFetch(url)
+  const [cardSearched, setCardSearched] = useState("")
 
   return (
     <div className="App">
@@ -42,7 +42,7 @@ function App() {
         </main>
       </BrowserRouter>
     </div>
-  );
+  )
 }
 
-export default App;
+export default App
